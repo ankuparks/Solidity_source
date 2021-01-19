@@ -1,0 +1,48 @@
+pragma solidity ^0.4.0;
+
+/* contract to process the transactions*/
+contract Bank{
+    
+    uint private balance;
+    
+    function BankBalance(uint startingAmount){            // intializing the balance with a random amount
+        balance = startingAmount;
+    }
+    
+    function depositAmount(uint deposit) returns(uint){    // function to deposit the amount in the bank
+        balance += deposit;
+        return balance;
+    }
+    
+    function withdrawAmount(uint withdraw) returns(uint){    // function to withdraw the specified from the bank
+        if(withdrawEligibility(withdraw)){
+            balance -= withdraw;
+            return balance;
+        }
+        return 0;
+    }
+    
+    /* Function checks wheather the withdrawal amount is greater or lesser than 
+        the balance amount*/
+    function withdrawEligibility(uint withdrawalAmount) returns(bool){    
+        if(withdrawalAmount>balance)
+            return false;       // returns true if greater than the balance
+        return true;  // or false
+    }
+}
+
+/* contract to manage the transactions*/
+contract Demo is Bank(){
+    
+    function setAmount(){
+        BankBalance(100);   // setting the balance with the random value
+    }
+    
+    function giveAmount() returns(uint){
+        return depositAmount(60);
+    }
+    
+    function takeAmount() returns(uint){
+        return withdrawAmount(10);
+    }
+}
