@@ -1,0 +1,17 @@
+/* Basic program of addition of two numbers 
+ in solidity */
+ 
+pragma solidity ^0.4.0;
+
+contract Ankit{
+    
+    uint private result;
+    
+    function sum(uint a, uint b){
+        result = a + b;
+    } 
+    
+    function getSum() returns(uint){
+        return result;
+    }
+}
