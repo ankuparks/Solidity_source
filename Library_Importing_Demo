@@ -1,0 +1,51 @@
+//**************** testDemo.sol ****************** 
+
+pragma solidity ^0.4.0;
+
+library TestDemo{
+    
+    function parameterDecrementByOne(uint _self) returns(uint){
+        return _self-=1;
+    }
+    
+    function parameterIncrementByOne(uint _self) returns(uint){
+        return _self+=1;
+    }
+    
+    function parameterDecrementByValue(uint _base, uint value) returns(uint){
+        return _base-=value;
+    }
+    
+    function parameterIncrementByValue(uint _base, uint value) returns(uint){
+        return _base+=value;
+    }
+}
+
+
+//*************** Example.sol ****************
+
+pragma solidity ^0.4.0;
+
+import "browser/testDemo.sol";
+
+contract Example{
+    
+    using TestDemo for uint;
+    
+    function getdecrementOne(uint _base) returns(uint){
+        return _base.parameterDecrementByOne();
+    }
+    
+    function getIncrementOne(uint _base) returns(uint){
+        return _base.parameterIncrementByOne();
+    }
+    
+    function getdecrementValue(uint _base, uint _value) returns(uint){
+        return _base.parameterDecrementByValue(_value);
+    }
+    
+    function getIncrementValue(uint _base, uint _value) returns(uint){
+        return _base.parameterIncrementByValue(_value);
+    }
+}
+
