@@ -1,0 +1,51 @@
+pragma solidity ^0.6.0;
+
+contract DataTypes{
+    
+    uint[] array;  // declares a storage array
+    
+    function defineArray() public{
+        
+        //pushing the values to the array
+        array.push(10);  
+        array.push(11);
+        array.push(12);
+        
+        //accessing the value from the array
+
+        array[2];
+        
+        //replacing the element on index 1
+
+        array[1] = 188;
+
+        //accessing the no. of elements from teh array
+
+        array.length;
+        
+        // removing the element from the array
+        // and it will assign 0 to that index
+
+        delete array[1];
+        
+    }
+    
+    function defineSimpleArray(int[] calldata array) external returns(int[] memory){
+        // creating an array of memory typeo
+        
+        int[] memory newArray = new int[](10);
+        
+        // inserting value in an array
+        newArray[0] = 111;
+        newArray[4] = 777;
+        newArray[7] = 333;
+        newArray[9] = 222;
+        
+        //it will delete the element from index 7
+        delete newArray[7];
+        
+        //returning the array
+        return newArray;
+    }
+    
+}
