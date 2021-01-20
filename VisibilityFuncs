@@ -1,0 +1,40 @@
+pragma solidity ^0.6.0;
+
+/*Defining a contract to show 
+the types of functions we can define 
+in solidity
+*/
+
+contract Visibility{
+
+    // declaring a satte variables
+    uint _value;  
+        
+    /* view function in solidity which can only
+       read the state variables but cannot modify
+       it, and if we do so then it will generate an error 
+    */
+    function implementViewKeyword() external view returns(uint){
+        uint anotherValue = _value + 1;
+        return anotherValue;
+    }
+    
+    /* pure function which can only modify the 
+       variables which will pass as a parameter
+       or either declare in the function itself
+       but w cannot read the state variable in it
+    */ 
+    function implementPureKeyword() external pure returns(uint){
+        uint _value = 10;
+        _value*=10;
+        return _value;
+    }
+    
+    /*
+    Function define to only assign the user input value to 
+    the state varibale named "_value" above...
+    */
+    function setValue(uint value) external{
+        _value = value;  // value -> parameter variable
+    }
+}
