@@ -1,0 +1,34 @@
+pragma solidity >=0.5.0 <=0.7.0;
+
+/* difining the contract to show the 
+   function returning the value either 
+   single or multiple. 
+*/
+contract ReturnDemo{
+    
+    //declaring the state variable
+    uint private _value;
+    
+    //  this function will return single value
+    function getSingleValue() external view returns(uint){
+      uint product  = _value * 10;
+      return product;
+    } 
+    
+    // this function will return the mutiple values
+    function getMultipleValue() external pure returns(uint, uint, uint, uint){
+        
+        uint a = 5;
+        uint b = 10;
+        return(a*10, b*10, 1000, 4000);  // returning the 4 values
+        {
+            
+            
+        }
+    }
+    
+    // setting the value to the state variable "_value"
+    function setValue(uint userInput) external{
+        _value = userInput;
+    }
+}
