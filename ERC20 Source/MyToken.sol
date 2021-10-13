@@ -1,4 +1,4 @@
-pragma solidity ^0.6.0;
+pragma solidity ^0.8.0;
 
 import "browser/erc20.sol";
 import "browser/ERC223.sol";
