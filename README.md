@@ -13,5 +13,5 @@ This code is just for the practise don't use this code in the production as it m
 * Function Scops
 * Arrays operations
 * ERC's
-⋅⋅1. ERC20
-⋅⋅2. ERC721
+  - ERC20
+  - ERC721
