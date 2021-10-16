@@ -1,0 +1,25 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+/// @notice Just a simple example of mappings in solidity
+contract DemoMapping {
+    
+    struct Person {
+        string name;
+        uint age;
+        string occupation;
+    }
+    
+    mapping(uint => Person) private personMapping;
+    
+    function fillMapping() public {
+        personMapping[1] = Person('Pradyuman', 22, 'Jaipur');
+        personMapping[2] = Person('Parth', 52, 'Mumbai');
+        personMapping[3] = Person('Suresh', 32, 'Delhi');
+        personMapping[4] = Person('Rajesh', 27, 'Kolkata');
+    }
+    
+    function getMappingData(uint _id) public view returns(Person memory) {
+        return personMapping[_id];
+    }
+}
